@@ -125,7 +125,7 @@ def job5():
     book = "qwertyuiopasdfghjklzxcvbnm"
 
     main_classes = ("warrior", "savage", "thief", "leader", "lucky", "nerd")
-    main_skills = ("big guns", "small guns", "traps", "explosives", "athletics", "repair", "steal")
+    main_skills = ("big guns", "smal guns", "traps", "explosives", "athletics", "repair", "steal")
     main_specifications = ("strength", "perception", "endurance", "charisma", "intelligence", "agility", "luck")
 
     your_name = ""
@@ -165,7 +165,7 @@ def job5():
 
 # ЗАДАНИЕ 6
 def job6():
-    print("Введите заказ, после напишите stop")
+    print("Введите заказ, после напишит stop")
     flag = True
     order = []
 
