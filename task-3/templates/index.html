@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Write to File</title>
+</head>
+<body>
+    <h1>Write to File</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <form action="/write" method="POST">
+        <input type="text" name="text">
+        <input type="submit" value="Write to File">
+    </form>
+
+    <a href="/read">Read File</a>
+</body>
+</html>
