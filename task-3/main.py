@@ -32,7 +32,7 @@ def task_3():
     # маршрут для главной страницы
     @app.route("/")
     def index():
-        return render_template("index.html")
+        return render_template("index1.html")
 
     # маршрут для записи строки в файл
     @app.route("/write", methods=["POST"])
