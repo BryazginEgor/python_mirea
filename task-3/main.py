@@ -1,18 +1,16 @@
-#def task_1():
- #   from flask import Flask
-#
-  #  # задание 1
-  #  app = Flask(__name__)
-#
-  #  @app.route('/')
-  #  def index():
-  #      return 'Hello, World!'
-import string
-from random import random
+def task_1():
+    from flask import Flask
+
+    # задание 1
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return 'Hello, World!'
 
 
-#   if __name__ == '__main__':
-  #      app.run()
+    if __name__ == '__main__':
+         app.run()
 
 # задание 2
 def task_2():
