@@ -43,7 +43,7 @@ def task_3():
         with open("output.txt", "a") as f:
             f.write(text + "\n")
 
-        return render_template("index.html", message="Text written to file successfully!")
+        return render_template("index1.html", message="Text written to file successfully!")
 
     # маршрут для чтения содержимого файла
     @app.route("/read")
@@ -57,6 +57,7 @@ def task_3():
     if __name__ == '__main__':
         app.run(debug=True)
 
+# задание 4
 def task_4():
     import sqlite3
     def create_table():
@@ -98,7 +99,7 @@ def task_4():
 
     print_users()
 
-
+# задание 5
 def task_5():
     from flask import Flask, render_template, request
     import sqlite3
@@ -157,4 +158,62 @@ def task_5():
 
     if __name__ == '__main__':
         app.run()
-task_5()
+
+# задание 6
+def task_6():
+    from flask import Flask, render_template, request, redirect, session
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    @app.route('/page_1', methods=['GET', 'POST'])
+    def page_1():
+        if request.method == 'POST':
+            last_name = request.form['last_name']
+            first_name = request.form['first_name']
+            middle_name = request.form['middle_name']
+            birth_date = request.form['birth_date']
+            occupation = request.form['occupation']
+
+            session['last_name'] = last_name
+            session['first_name'] = first_name
+            session['middle_name'] = middle_name
+            session['birth_date'] = birth_date
+            session['occupation'] = occupation.split(',')
+
+            return redirect('/')
+
+        return render_template('page_1.html')
+
+    @app.route('/page_2', methods=['GET', 'POST'])
+    def page_2():
+        if request.method == 'POST':
+            salaries = {}
+
+            for occupation in session['occupation']:
+                salary = request.form.get(occupation)
+                salaries[occupation] = salary
+
+            session['salaries'] = salaries
+
+            return redirect('/')
+
+        return render_template('page_2.html', occupations=session['occupation'])
+
+    @app.route('/page_3')
+    def page_3():
+        data = {
+            'last_name': session['last_name'],
+            'first_name': session['first_name'],
+            'middle_name': session['middle_name'],
+            'occupation_salaries': session['salaries']
+        }
+
+        return render_template('page_3.html', data=data)
+
+    if __name__ == '__main__':
+        app.secret_key = 'supersecretkey'
+        app.run(debug=True)

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Страница 2</title>
+</head>
+<body>
+    <h1>Страница 2</h1>
+    <form method="POST">
+        {% for occupation in occupations %}
+            <label for="{{ occupation }}">{{ occupation }}:</label>
+            <input type="text" id="{{ occupation }}" name="{{ occupation }}" required><br><br>
+        {% endfor %}
+
+        <input type="submit" value="Отправить">
+    </form>
+    <br>
+    <a href="/">Вернуться в главное меню</a>
+</body>
+</html>

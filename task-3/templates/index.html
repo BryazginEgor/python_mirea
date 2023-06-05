@@ -1,21 +1,14 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Write to File</title>
+    <title>Главное меню</title>
 </head>
 <body>
-    <h1>Write to File</h1>
-
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
-
-    <form action="/write" method="POST">
-        <input type="text" name="text">
-        <input type="submit" value="Write to File">
-    </form>
-
-    <a href="/read">Read File</a>
+    <h1>Главное меню</h1>
+    <ul>
+        <li><a href="/page_1">Страница 1</a></li>
+        <li><a href="/page_2">Страница 2</a></li>
+        <li><a href="/page_3">Страница 3</a></li>
+    </ul>
 </body>
 </html>
